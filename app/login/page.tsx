@@ -13,6 +13,7 @@ async function page() {
 
   return (
     <div className="flex flex-col gap-10 justify-center items-center min-h-full mt-10">
+      <title>Chatify | Login</title>
       <Login />
     </div>
   );

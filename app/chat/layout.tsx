@@ -28,16 +28,19 @@ const layout = async ({
     cookies().get("next-auth.session-token")?.value;
 
   return (
-    <SocketWrapper token={token as string}>
-      <LastMessageProvider>
-        <MainCard>
-          <Suspense fallback={<UserListLoader />}>{users}</Suspense>
-          <Suspense fallback={<ConversationLoader />}>
-            <div className="col-span-2">{chat}</div>
-          </Suspense>
-        </MainCard>
-      </LastMessageProvider>
-    </SocketWrapper>
+    <>
+      <title>Chatify</title>
+      <SocketWrapper token={token as string}>
+        <LastMessageProvider>
+          <MainCard>
+            <Suspense fallback={<UserListLoader />}>{users}</Suspense>
+            <Suspense fallback={<ConversationLoader />}>
+              <div className="col-span-2">{chat}</div>
+            </Suspense>
+          </MainCard>
+        </LastMessageProvider>
+      </SocketWrapper>
+    </>
   );
 };
 
