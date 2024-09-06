@@ -5,11 +5,10 @@ import Input from "../ui/Input";
 import SwitchAuthFooter from "./SwitchAuthFooter";
 import { useFormState } from "react-dom";
 import { signup } from "@/actions/signup";
-import { Button, Card } from "@nextui-org/react";
+import { Card } from "@nextui-org/react";
 import Alert from "../ui/Alert";
 import AvatarUploader from "../ui/AvatarUploader";
 import { signIn } from "next-auth/react";
-import { redirect } from "next/navigation";
 import FormBtn from "../ui/FormBtn";
 
 function Signup() {
@@ -19,14 +18,13 @@ function Signup() {
     message: "",
   });
 
-  if (state.ok && state.code === 201) {
+  if (state && state.ok && state.code === 201) {
     signIn("credentials", {
-      redirect: false,
-      callbackUrl: "/",
+      redirect: true,
+      callbackUrl: "/chat",
       email: state.email,
       password: state.password,
     });
-    redirect("/chat");
   }
 
   return (
