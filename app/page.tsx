@@ -11,7 +11,5 @@ export default async function Home() {
     redirect("/login");
   }
 
-  // const token = cookies().get("next-auth.session-token")?.value;
-
   return <div>Hello</div>;
 }
