@@ -2,7 +2,7 @@
 const nextConfig = {
   env: {
     AWS: "https://atheer-web-projects.s3.eu-central-1.amazonaws.com/",
-    API: "http://localhost:5000",
+    API: "https://distinct-storm-shoulder.glitch.me",
   },
   images: {
     remotePatterns: [
